@@ -1,8 +1,9 @@
 using UnityEngine;
 using System.Collections;
 
-public class NewBehaviourScript : MonoBehaviour 
+public class SeeSaw : MonoBehaviour 
 {
+    const float MoveSpeed = 5.0F;
 
 	// Use this for initialization
 	void Start () 
@@ -15,13 +16,11 @@ public class NewBehaviourScript : MonoBehaviour
 	{
         if (Input.GetButton("D"))
         {
-		    GameObject see_saw = GameObject.FindWithTag("seeSaw");
-		    see_saw.hingeJoint.transform.position -= Vector3.right * 5.0F * Time.deltaTime;
+            hingeJoint.transform.position -= Vector3.right * MoveSpeed * Time.deltaTime;
         }
         else if (Input.GetButton("A"))
         {
-            GameObject see_saw = GameObject.FindWithTag("seeSaw");
-            see_saw.hingeJoint.transform.position += Vector3.right * 5.0F * Time.deltaTime;  
+            hingeJoint.transform.position += Vector3.right * MoveSpeed * Time.deltaTime;  
         }
 	
 	}
