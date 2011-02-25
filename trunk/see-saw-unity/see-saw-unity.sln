@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+
+Project("{FBEE9352-332D-B2F2-A5B0-0721E355D6D6}") = "see-saw-unity", "see-saw-unity.csproj", "{D4B1907D-33CE-D714-9CA3-BBCE4A2E1612}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D4B1907D-33CE-D714-9CA3-BBCE4A2E1612}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4B1907D-33CE-D714-9CA3-BBCE4A2E1612}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4B1907D-33CE-D714-9CA3-BBCE4A2E1612}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4B1907D-33CE-D714-9CA3-BBCE4A2E1612}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	
+EndGlobal
