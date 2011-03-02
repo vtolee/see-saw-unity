@@ -8,7 +8,8 @@ public class SeeSaw : MonoBehaviour
 	// Use this for initialization
 	void Start () 
     {
-	
+		rigidbody.constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionZ;
+		rigidbody.freezeRotation = true;		
 	}
 	
 	// Update is called once per frame
@@ -16,12 +17,18 @@ public class SeeSaw : MonoBehaviour
 	{
         if (Input.GetButton("D"))
         {
-            hingeJoint.transform.position -= Vector3.right * MoveSpeed * Time.deltaTime;
+			Vector3 moveAmt = Vector3.right * MoveSpeed * Time.deltaTime;
+			hingeJoint.anchor -= moveAmt;
         }
         else if (Input.GetButton("A"))
         {
-            hingeJoint.transform.position += Vector3.right * MoveSpeed * Time.deltaTime;  
-        }
-	
+			Vector3 moveAmt = Vector3.right * MoveSpeed * Time.deltaTime;
+			hingeJoint.anchor += moveAmt;
+		}
+		else if (Input.GetButton("Space"))
+		{
+			rigidbody.constraints = 0;
+			rigidbody.constraints = RigidbodyConstraints.FreezePositionX;
+		}
 	}
 }
