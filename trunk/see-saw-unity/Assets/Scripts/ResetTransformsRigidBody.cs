@@ -5,10 +5,12 @@ public class ResetTransformsRigidBody : MonoBehaviour
 {
 	Quaternion vOriginalRotation;
 	Vector3 vOriginalPosition;
+    RigidbodyConstraints froze = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionX;
 
 	// Use this for initialization
 	void Start () 
 	{
+        rigidbody.constraints = froze;
 		vOriginalRotation = transform.rotation;
 		vOriginalPosition = transform.position;
 	}
@@ -17,25 +19,27 @@ public class ResetTransformsRigidBody : MonoBehaviour
 	void Update () 
 	{
 		if(Input.GetButtonDown("Space"))
-		{
-			//rigidbody.isKinematic =false;
+        {
+            rigidbody.freezeRotation = false;
+            rigidbody.constraints = 0;
+            rigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
 			rigidbody.useGravity = true;
-			rigidbody.freezeRotation = false;
 		}
 		else if (Input.GetButtonDown("R"))
-		{
-			// reset position & rotation
+        {
+            rigidbody.useGravity = false;
+            rigidbody.constraints = froze;
+            rigidbody.freezeRotation = true;
+
+            // reset position & rotation
+            transform.position = vOriginalPosition;
 			transform.rotation = vOriginalRotation;
-			transform.position = vOriginalPosition;
 			
 			rigidbody.position = vOriginalPosition;
 			rigidbody.rotation = vOriginalRotation;
 			rigidbody.velocity += -rigidbody.velocity;
 			rigidbody.angularVelocity += -rigidbody.angularVelocity;
 
-			rigidbody.useGravity = false;
-			rigidbody.freezeRotation = true;
-			//rigidbody.isKinematic = true;
 		}
 	}
 }

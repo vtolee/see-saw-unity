@@ -22,8 +22,8 @@ public class ResetTransforms : MonoBehaviour
         else if (Input.GetButtonDown("R"))
         {
             // reset position & rotation
-            transform.rotation = vOriginalRotation;
             transform.position = vOriginalPosition;
+            transform.rotation = vOriginalRotation;
         }
     }
 }
