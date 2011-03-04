@@ -1,7 +1,7 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
-
-Project("{FBEE9352-332D-B2F2-A5B0-0721E355D6D6}") = "see-saw-unity", "see-saw-unity.csproj", "{D4B1907D-33CE-D714-9CA3-BBCE4A2E1612}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "see-saw-unity", "see-saw-unity.csproj", "{D4B1907D-33CE-D714-9CA3-BBCE4A2E1612}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,5 +17,4 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-	
 EndGlobal

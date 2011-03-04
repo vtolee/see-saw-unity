@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Wedge : MonoBehaviour 
 {
-    const float MoveSpeed = 5.0F;
+    const float MoveSpeed = 3.0F;
 
 	// Use this for initialization
 	void Start () 
