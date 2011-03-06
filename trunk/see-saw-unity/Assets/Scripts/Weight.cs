@@ -3,23 +3,34 @@ using System.Collections;
 
 public class Weight : MonoBehaviour 
 {
-    const float MoveSpeed = 5.0F;
+    const float MoveSpeed = 3.0f;
+    const float MaxMoveDist = 1.35f;
+
+    float m_fCurrMoveDist;
 	
-	// Use this for initialization
 	void Start () 
 	{
+        m_fCurrMoveDist = 0.0f;
 	}
 	
-	// Update is called once per frame
 	void Update ()
 	{
-		if(Input.GetButton("W"))
+		if (!Game.g_bLaunchStarted)
 		{
-            transform.position += Vector3.up * MoveSpeed * Time.deltaTime;
-		}		
-		else if (Input.GetButton("S"))
-		{
-            transform.position -= Vector3.up * MoveSpeed * Time.deltaTime;
+            if (Input.GetButton("W") && m_fCurrMoveDist < MaxMoveDist)
+			{
+                m_fCurrMoveDist += MoveSpeed * Time.deltaTime;
+                transform.position += Vector3.up * MoveSpeed * Time.deltaTime;
+			}		
+			else if (Input.GetButton("S") && m_fCurrMoveDist > -MaxMoveDist)
+			{
+                m_fCurrMoveDist -= MoveSpeed * Time.deltaTime;
+                transform.position -= Vector3.up * MoveSpeed * Time.deltaTime;
+			}
 		}
+        else if (Input.GetButtonDown("R"))
+        {
+            m_fCurrMoveDist = 0.0f;
+        }
 	}
 }

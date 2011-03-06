@@ -7,7 +7,6 @@ public class ResetTransformsRigidBody : MonoBehaviour
 	Vector3 vOriginalPosition;
     RigidbodyConstraints froze = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezePositionX;
 
-	// Use this for initialization
 	void Start () 
 	{
         rigidbody.constraints = froze;
@@ -15,10 +14,9 @@ public class ResetTransformsRigidBody : MonoBehaviour
 		vOriginalPosition = transform.position;
 	}
 	
-	// Update is called once per frame
-	void Update () 
+	void FixedUpdate () 
 	{
-		if(Input.GetButtonDown("Space"))
+		if(!Game.g_bLaunchStarted && Input.GetButtonDown("Space"))
         {
             rigidbody.freezeRotation = false;
             rigidbody.constraints = 0;
@@ -27,10 +25,6 @@ public class ResetTransformsRigidBody : MonoBehaviour
 		}
 		else if (Input.GetButtonDown("R"))
         {
-            rigidbody.useGravity = false;
-            rigidbody.constraints = froze;
-            rigidbody.freezeRotation = true;
-
             // reset position & rotation
             transform.position = vOriginalPosition;
 			transform.rotation = vOriginalRotation;
@@ -38,8 +32,11 @@ public class ResetTransformsRigidBody : MonoBehaviour
 			rigidbody.position = vOriginalPosition;
 			rigidbody.rotation = vOriginalRotation;
 			rigidbody.velocity += -rigidbody.velocity;
-			rigidbody.angularVelocity += -rigidbody.angularVelocity;
+            rigidbody.angularVelocity += -rigidbody.angularVelocity;
 
+            rigidbody.useGravity = false;
+            rigidbody.constraints = froze;
+            rigidbody.freezeRotation = true;
 		}
 	}
 }
