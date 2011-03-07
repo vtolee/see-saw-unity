@@ -16,14 +16,7 @@ public class ResetTransformsRigidBody : MonoBehaviour
 	
 	void FixedUpdate () 
 	{
-		if(!Game.g_bLaunchStarted && Input.GetButtonDown("Space"))
-        {
-            rigidbody.freezeRotation = false;
-            rigidbody.constraints = 0;
-            rigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
-			rigidbody.useGravity = true;
-		}
-		else if (Input.GetButtonDown("R"))
+		if (Input.GetButtonDown("R"))
         {
             // reset position & rotation
             transform.position = vOriginalPosition;

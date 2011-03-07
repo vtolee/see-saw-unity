@@ -23,10 +23,17 @@ public class Wedge : MonoBehaviour
                 m_fCurrMoveDist += MoveSpeed * Time.deltaTime;
                 transform.position += Vector3.right * MoveSpeed * Time.deltaTime;
             }
-            if (Input.GetButton("D") && m_fCurrMoveDist > -MaxMoveDist)
+            else if (Input.GetButton("D") && m_fCurrMoveDist > -MaxMoveDist)
             {
                 m_fCurrMoveDist -= MoveSpeed * Time.deltaTime;
                 transform.position -= Vector3.right * MoveSpeed * Time.deltaTime;
+            }
+            else if (Input.GetButtonDown("Space"))
+            {
+                rigidbody.freezeRotation = false;
+                rigidbody.constraints = 0;
+                rigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
+                rigidbody.useGravity = true;
             }
         }
         else

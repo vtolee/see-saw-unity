@@ -16,10 +16,7 @@ public class ResetTransforms : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Space"))
-        {
-        }
-        else if (Input.GetButtonDown("R"))
+        if (Input.GetButtonDown("R"))
         {
             // reset position & rotation
             transform.position = vOriginalPosition;

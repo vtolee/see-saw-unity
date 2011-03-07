@@ -15,6 +15,12 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetButtonDown("Space"))
+        {
+            rigidbody.freezeRotation = false;
+            rigidbody.constraints = 0;
+            rigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
+            rigidbody.useGravity = true;
+        }
     }
 }

@@ -26,7 +26,14 @@ public class Weight : MonoBehaviour
 			{
                 m_fCurrMoveDist -= MoveSpeed * Time.deltaTime;
                 transform.position -= Vector3.up * MoveSpeed * Time.deltaTime;
-			}
+            }
+            else if (Input.GetButtonDown("Space"))
+            {
+                rigidbody.freezeRotation = false;
+                rigidbody.constraints = 0;
+                rigidbody.constraints = RigidbodyConstraints.FreezePositionZ;
+                rigidbody.useGravity = true;
+            }
 		}
         else if (Input.GetButtonDown("R"))
         {
